@@ -648,7 +648,7 @@ class SVGParser extends DefaultHandler2
          ignoreDepth++;
          return;
       }
-      if (!SVG_NAMESPACE.equals(uri) && !"".equals(uri)) {
+      if (!SVG_NAMESPACE.equals(uri) && !"".equalsIgnoreCase(uri)) {
          return;
       }
 
@@ -795,7 +795,7 @@ class SVGParser extends DefaultHandler2
          }
       }
 
-      if (!SVG_NAMESPACE.equals(uri) && !"".equals(uri)) {
+      if (!SVG_NAMESPACE.equals(uri) && !"".equalsIgnoreCase(uri)) {
          return;
       }
 
@@ -1033,7 +1033,7 @@ class SVGParser extends DefaultHandler2
                   throw new SAXException("Invalid <use> element. height cannot be negative");
                break;
             case href:
-               if ("".equals(attributes.getURI(i)) || XLINK_NAMESPACE.equals(attributes.getURI(i)))
+               if ("".equalsIgnoreCase(attributes.getURI(i)) || XLINK_NAMESPACE.equals(attributes.getURI(i)))
                   obj.href = val;
                break;
             default:
@@ -1090,7 +1090,7 @@ class SVGParser extends DefaultHandler2
                   throw new SAXException("Invalid <use> element. height cannot be negative");
                break;
             case href:
-               if ("".equals(attributes.getURI(i)) || XLINK_NAMESPACE.equals(attributes.getURI(i)))
+               if ("".equalsIgnoreCase(attributes.getURI(i)) || XLINK_NAMESPACE.equals(attributes.getURI(i)))
                   obj.href = val;
                break;
             case preserveAspectRatio:
@@ -1547,7 +1547,7 @@ class SVGParser extends DefaultHandler2
          switch (SVGAttr.fromString(attributes.getLocalName(i)))
          {
             case href:
-               if ("".equals(attributes.getURI(i)) || XLINK_NAMESPACE.equals(attributes.getURI(i)))
+               if ("".equalsIgnoreCase(attributes.getURI(i)) || XLINK_NAMESPACE.equals(attributes.getURI(i)))
                   obj.href = val;
                break;
             default:
@@ -1679,16 +1679,16 @@ class SVGParser extends DefaultHandler2
                   throw new SAXException("Invalid <marker> element. markerHeight cannot be negative");
                break;
             case markerUnits:
-               if ("strokeWidth".equals(val)) {
+               if ("strokeWidth".equalsIgnoreCase(val)) {
                   obj.markerUnitsAreUser = false;
-               } else if ("userSpaceOnUse".equals(val)) {
+               } else if ("userSpaceOnUse".equalsIgnoreCase(val)) {
                   obj.markerUnitsAreUser = true;
                } else {
                   throw new SAXException("Invalid value for attribute markerUnits");
                } 
                break;
             case orient:
-               if ("auto".equals(val)) {
+               if ("auto".equalsIgnoreCase(val)) {
                   obj.orient = Float.NaN;
                } else {
                   obj.orient = parseFloat(val);
@@ -1731,9 +1731,9 @@ class SVGParser extends DefaultHandler2
          switch (SVGAttr.fromString(attributes.getLocalName(i)))
          {
             case gradientUnits:
-               if ("objectBoundingBox".equals(val)) {
+               if ("objectBoundingBox".equalsIgnoreCase(val)) {
                   obj.gradientUnitsAreUser = false;
-               } else if ("userSpaceOnUse".equals(val)) {
+               } else if ("userSpaceOnUse".equalsIgnoreCase(val)) {
                   obj.gradientUnitsAreUser = true;
                } else {
                   throw new SAXException("Invalid value for attribute gradientUnits");
@@ -1753,7 +1753,7 @@ class SVGParser extends DefaultHandler2
                }
                break;
             case href:
-               if ("".equals(attributes.getURI(i)) || XLINK_NAMESPACE.equals(attributes.getURI(i)))
+               if ("".equalsIgnoreCase(attributes.getURI(i)) || XLINK_NAMESPACE.equals(attributes.getURI(i)))
                   obj.href = val;
                break;
             default:
@@ -1958,9 +1958,9 @@ class SVGParser extends DefaultHandler2
          switch (SVGAttr.fromString(attributes.getLocalName(i)))
          {
             case clipPathUnits:
-               if ("objectBoundingBox".equals(val)) {
+               if ("objectBoundingBox".equalsIgnoreCase(val)) {
                   obj.clipPathUnitsAreUser = false;
-               } else if ("userSpaceOnUse".equals(val)) {
+               } else if ("userSpaceOnUse".equalsIgnoreCase(val)) {
                   obj.clipPathUnitsAreUser = true;
                } else {
                   throw new SAXException("Invalid value for attribute clipPathUnits");
@@ -2007,7 +2007,7 @@ class SVGParser extends DefaultHandler2
          switch (SVGAttr.fromString(attributes.getLocalName(i)))
          {
             case href:
-               if ("".equals(attributes.getURI(i)) || XLINK_NAMESPACE.equals(attributes.getURI(i)))
+               if ("".equalsIgnoreCase(attributes.getURI(i)) || XLINK_NAMESPACE.equals(attributes.getURI(i)))
                   obj.href = val;
                break;
             case startOffset:
@@ -2051,18 +2051,18 @@ class SVGParser extends DefaultHandler2
          switch (SVGAttr.fromString(attributes.getLocalName(i)))
          {
             case patternUnits:
-               if ("objectBoundingBox".equals(val)) {
+               if ("objectBoundingBox".equalsIgnoreCase(val)) {
                   obj.patternUnitsAreUser = false;
-               } else if ("userSpaceOnUse".equals(val)) {
+               } else if ("userSpaceOnUse".equalsIgnoreCase(val)) {
                   obj.patternUnitsAreUser = true;
                } else {
                   throw new SAXException("Invalid value for attribute patternUnits");
                } 
                break;
             case patternContentUnits:
-               if ("objectBoundingBox".equals(val)) {
+               if ("objectBoundingBox".equalsIgnoreCase(val)) {
                   obj.patternContentUnitsAreUser = false;
-               } else if ("userSpaceOnUse".equals(val)) {
+               } else if ("userSpaceOnUse".equalsIgnoreCase(val)) {
                   obj.patternContentUnitsAreUser = true;
                } else {
                   throw new SAXException("Invalid value for attribute patternContentUnits");
@@ -2088,7 +2088,7 @@ class SVGParser extends DefaultHandler2
                   throw new SAXException("Invalid <pattern> element. height cannot be negative");
                break;
             case href:
-               if ("".equals(attributes.getURI(i)) || XLINK_NAMESPACE.equals(attributes.getURI(i)))
+               if ("".equalsIgnoreCase(attributes.getURI(i)) || XLINK_NAMESPACE.equals(attributes.getURI(i)))
                   obj.href = val;
                break;
             default:
@@ -2149,18 +2149,18 @@ class SVGParser extends DefaultHandler2
          switch (SVGAttr.fromString(attributes.getLocalName(i)))
          {
             case maskUnits:
-               if ("objectBoundingBox".equals(val)) {
+               if ("objectBoundingBox".equalsIgnoreCase(val)) {
                   obj.maskUnitsAreUser = false;
-               } else if ("userSpaceOnUse".equals(val)) {
+               } else if ("userSpaceOnUse".equalsIgnoreCase(val)) {
                   obj.maskUnitsAreUser = true;
                } else {
                   throw new SAXException("Invalid value for attribute maskUnits");
                } 
                break;
             case maskContentUnits:
-               if ("objectBoundingBox".equals(val)) {
+               if ("objectBoundingBox".equalsIgnoreCase(val)) {
                   obj.maskContentUnitsAreUser = false;
-               } else if ("userSpaceOnUse".equals(val)) {
+               } else if ("userSpaceOnUse".equalsIgnoreCase(val)) {
                   obj.maskContentUnitsAreUser = true;
                } else {
                   throw new SAXException("Invalid value for attribute maskContentUnits");
@@ -2566,9 +2566,9 @@ class SVGParser extends DefaultHandler2
          }
          else if (qname.equals("xml:space")) {
             String  val = attributes.getValue(i).trim();
-            if ("default".equals(val)) {
+            if ("default".equalsIgnoreCase(val)) {
                obj.spacePreserve = Boolean.FALSE;
-            } else if ("preserve".equals(val)) {
+            } else if ("preserve".equalsIgnoreCase(val)) {
                obj.spacePreserve = Boolean.TRUE;
             } else {
                throw new SAXException("Invalid value for \"xml:space\" attribute: "+val);
@@ -2646,7 +2646,7 @@ class SVGParser extends DefaultHandler2
       if (val.length() == 0) { // The spec doesn't say how to handle empty style attributes.
          return;               // Our strategy is just to ignore them.
       }
-      if (val.equals("inherit"))
+      if (val.equalsIgnoreCase("inherit"))
          return;
 
       switch (SVGAttr.fromString(localName))
@@ -2707,7 +2707,7 @@ class SVGParser extends DefaultHandler2
             break;
 
          case stroke_dasharray:
-            if (NONE.equals(val))
+            if (NONE.equalsIgnoreCase(val))
                style.strokeDashArray = null;
             else
                style.strokeDashArray = parseStrokeDashArray(val);
@@ -2810,7 +2810,7 @@ class SVGParser extends DefaultHandler2
          case visibility:
             if (val.indexOf('|') >= 0 || !VALID_VISIBILITY_VALUES.contains('|'+val+'|'))
                throw new SAXException("Invalid value for \"visibility\" attribute: "+val);
-            style.visibility = val.equals("visible");
+            style.visibility = val.equalsIgnoreCase("visible");
             style.specifiedFlags |= SVG.SPECIFIED_VISIBILITY;
             break;
 
@@ -3205,7 +3205,7 @@ class SVGParser extends DefaultHandler2
       scan.skipWhitespace();
 
       String  word = scan.nextToken();
-      if ("defer".equals(word)) {    // Ignore defer keyword
+      if ("defer".equalsIgnoreCase(word)) {    // Ignore defer keyword
          scan.skipWhitespace();
          word = scan.nextToken();
       }
@@ -3448,7 +3448,7 @@ class SVGParser extends DefaultHandler2
             throw new SAXException("Invalid font style attribute: missing font size and family");
          if (fontWeight != null && fontStyle != null)
             break;
-         if (item.equals("normal"))  // indeterminate which of these this refers to
+         if (item.equalsIgnoreCase("normal"))  // indeterminate which of these this refers to
             continue;
          if (fontWeight == null) {
             fontWeight = FontWeightKeywords.get(item);
@@ -3461,7 +3461,7 @@ class SVGParser extends DefaultHandler2
                continue;
          }
          // Must be a font-variant keyword?
-         if (fontVariant == null && item.equals("small-caps")) {
+         if (fontVariant == null && item.equalsIgnoreCase("small-caps")) {
             fontVariant = item;
             continue;
          }
@@ -3552,11 +3552,11 @@ class SVGParser extends DefaultHandler2
    private static Style.FontStyle  fontStyleKeyword(String val)
    {
       // Italic is probably the most common, so test that first :)
-      if ("italic".equals(val))
+      if ("italic".equalsIgnoreCase(val))
          return Style.FontStyle.Italic;
-      else if ("normal".equals(val))
+      else if ("normal".equalsIgnoreCase(val))
          return Style.FontStyle.Normal;
-      else if ("oblique".equals(val))
+      else if ("oblique".equalsIgnoreCase(val))
          return Style.FontStyle.Oblique;
       else
          return null;
@@ -3566,15 +3566,15 @@ class SVGParser extends DefaultHandler2
    // Parse a text decoration keyword
    private static TextDecoration  parseTextDecoration(String val) throws SAXException
    {
-      if (NONE.equals(val))
+      if (NONE.equalsIgnoreCase(val))
          return Style.TextDecoration.None;
-      if ("underline".equals(val))
+      if ("underline".equalsIgnoreCase(val))
          return Style.TextDecoration.Underline;
-      if ("overline".equals(val))
+      if ("overline".equalsIgnoreCase(val))
          return Style.TextDecoration.Overline;
-      if ("line-through".equals(val))
+      if ("line-through".equalsIgnoreCase(val))
          return Style.TextDecoration.LineThrough;
-      if ("blink".equals(val))
+      if ("blink".equalsIgnoreCase(val))
          return Style.TextDecoration.Blink;
       throw new SAXException("Invalid text-decoration property: "+val);
    }
@@ -3583,9 +3583,9 @@ class SVGParser extends DefaultHandler2
    // Parse a text decoration keyword
    private static TextDirection  parseTextDirection(String val) throws SAXException
    {
-      if ("ltr".equals(val))
+      if ("ltr".equalsIgnoreCase(val))
          return Style.TextDirection.LTR;
-      if ("rtl".equals(val))
+      if ("rtl".equalsIgnoreCase(val))
          return Style.TextDirection.RTL;
       throw new SAXException("Invalid direction property: "+val);
    }
@@ -3594,9 +3594,9 @@ class SVGParser extends DefaultHandler2
    // Parse fill rule
    private static Style.FillRule  parseFillRule(String val) throws SAXException
    {
-      if ("nonzero".equals(val))
+      if ("nonzero".equalsIgnoreCase(val))
          return Style.FillRule.NonZero;
-      if ("evenodd".equals(val))
+      if ("evenodd".equalsIgnoreCase(val))
          return Style.FillRule.EvenOdd;
       throw new SAXException("Invalid fill-rule property: "+val);
    }
@@ -3605,11 +3605,11 @@ class SVGParser extends DefaultHandler2
    // Parse stroke-linecap
    private static Style.LineCaps  parseStrokeLineCap(String val) throws SAXException
    {
-      if ("butt".equals(val))
+      if ("butt".equalsIgnoreCase(val))
          return Style.LineCaps.Butt;
-      if ("round".equals(val))
+      if ("round".equalsIgnoreCase(val))
          return Style.LineCaps.Round;
-      if ("square".equals(val))
+      if ("square".equalsIgnoreCase(val))
          return Style.LineCaps.Square;
       throw new SAXException("Invalid stroke-linecap property: "+val);
    }
@@ -3618,11 +3618,11 @@ class SVGParser extends DefaultHandler2
    // Parse stroke-linejoin
    private static Style.LineJoin  parseStrokeLineJoin(String val) throws SAXException
    {
-      if ("miter".equals(val))
+      if ("miter".equalsIgnoreCase(val))
          return Style.LineJoin.Miter;
-      if ("round".equals(val))
+      if ("round".equalsIgnoreCase(val))
          return Style.LineJoin.Round;
-      if ("bevel".equals(val))
+      if ("bevel".equalsIgnoreCase(val))
          return Style.LineJoin.Bevel;
       throw new SAXException("Invalid stroke-linejoin property: "+val);
    }
@@ -3671,11 +3671,11 @@ class SVGParser extends DefaultHandler2
    // Parse a text anchor keyword
    private static Style.TextAnchor  parseTextAnchor(String val) throws SAXException
    {
-      if ("start".equals(val))
+      if ("start".equalsIgnoreCase(val))
          return Style.TextAnchor.Start;
-      if ("middle".equals(val))
+      if ("middle".equalsIgnoreCase(val))
          return Style.TextAnchor.Middle;
-      if ("end".equals(val))
+      if ("end".equalsIgnoreCase(val))
          return Style.TextAnchor.End;
       throw new SAXException("Invalid text-anchor property: "+val);
    }
@@ -3684,9 +3684,9 @@ class SVGParser extends DefaultHandler2
    // Parse a text anchor keyword
    private static Boolean  parseOverflow(String val) throws SAXException
    {
-      if ("visible".equals(val) || "auto".equals(val))
+      if ("visible".equalsIgnoreCase(val) || "auto".equalsIgnoreCase(val))
          return Boolean.TRUE;
-      if ("hidden".equals(val) || "scroll".equals(val))
+      if ("hidden".equalsIgnoreCase(val) || "scroll".equalsIgnoreCase(val))
          return Boolean.FALSE;
       throw new SAXException("Invalid toverflow property: "+val);
    }
@@ -3695,7 +3695,7 @@ class SVGParser extends DefaultHandler2
    // Parse CSS clip shape (always a rect())
    private static CSSClipRect  parseClip(String val) throws SAXException
    {
-      if ("auto".equals(val))
+      if ("auto".equalsIgnoreCase(val))
          return null;
       if (!val.toLowerCase(Locale.US).startsWith("rect("))
          throw new SAXException("Invalid clip attribute shape. Only rect() is supported.");
@@ -3731,9 +3731,9 @@ class SVGParser extends DefaultHandler2
    // Parse a vector effect keyword
    private static VectorEffect  parseVectorEffect(String val) throws SAXException
    {
-      if (NONE.equals(val))
+      if (NONE.equalsIgnoreCase(val))
          return Style.VectorEffect.None;
-      if ("non-scaling-stroke".equals(val))
+      if ("non-scaling-stroke".equalsIgnoreCase(val))
          return Style.VectorEffect.NonScalingStroke;
       throw new SAXException("Invalid vector-effect property: "+val);
    }
@@ -3742,11 +3742,11 @@ class SVGParser extends DefaultHandler2
    // Parse a rendering quality property
    private static RenderQuality  parseRenderQuality(String val, String attrName) throws SAXException
    {
-      if ("auto".equals(val))
+      if ("auto".equalsIgnoreCase(val))
          return RenderQuality.auto;
-      if ("optimizeQuality".equals(val))
+      if ("optimizeQuality".equalsIgnoreCase(val))
          return RenderQuality.optimizeQuality;
-      if ("optimizeSpeed".equals(val))
+      if ("optimizeSpeed".equalsIgnoreCase(val))
          return RenderQuality.optimizeSpeed;
       throw new SAXException("Invalid " + attrName + " property: "+val);
    }
@@ -4071,7 +4071,7 @@ class SVGParser extends DefaultHandler2
 
    private static String  parseFunctionalIRI(String val, String attrName) throws SAXException
    {
-      if (val.equals(NONE))
+      if (val.equalsIgnoreCase(NONE))
          return null;
       if (!val.startsWith("url(") || !val.endsWith(")"))
          throw new SAXException("Bad "+attrName+" attribute. Expected \"none\" or \"url()\" format");
@@ -4103,7 +4103,7 @@ class SVGParser extends DefaultHandler2
          switch (SVGAttr.fromString(attributes.getLocalName(i)))
          {
             case type:
-               isTextCSS = val.equals("text/css");
+               isTextCSS = val.equalsIgnoreCase("text/css");
                break;
             case media:
                media = val;
