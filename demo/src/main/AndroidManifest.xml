@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.demo">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@android:color/black"
+        android:label="demo"
+        android:roundIcon="@android:color/black"
+        android:supportsRtl="true"/>
+</manifest>
